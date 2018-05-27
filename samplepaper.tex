@@ -54,10 +54,37 @@ Easycrypt\cite{ref_article1} es una herramienta automatizada que soporta la cons
 %
 %
 \section{Introducción}
-Desde siempre las pruebas fueron propensas a errores, lo que naturalmente las puede llevar a ser erróneas. En particular las pruebas criptograficas la correctitud de las pruebas es critico para mejorar la confianza en el sistema criptografico. Actualmente se tiede a generar mas pruebas de las que se pueden verificar, se omiten detalles finos desde un analisis formal que pueden tener grandes efectos en la practica. Teniendo en cuenta que los sistemas criptograficos en el mundo real pueden ser vulnerados, es necesario hacer las verificaciones sobre los pruebas de los sistemas criptograficos para evitar un desastre en el area de la seguridad.
+Desde siempre las pruebas fueron propensas a errores, lo que naturalmente las puede llevar a ser erróneas. En particular las pruebas de seguridad criptograficas la correctitud es critica para mejorar la confianza en el sistema criptografico. Actualmente se tiede a generar mas pruebas de seguridad de las que se pueden verificar, se omiten detalles finos desde un analisis formal que pueden tener grandes efectos en la practica. Teniendo en cuenta que los sistemas criptograficos en el mundo real pueden ser vulnerados, es necesario hacer las verificaciones sobre los pruebas de los sistemas criptograficos para evitar un desastre en el area de la seguridad.
 
-Easycrypt es..
+Easycrypt es una herramienta que permite de manera interactiva buscar, construir, y realizar comprobaciones en maquina a pruebas de seguridad de construicciones criptograficas usando la secuencialidad del codigo con un enfoque de juego. En Easycrypt los juegos cryptograficos se modelan como modulos, que consisten en procedimientos escritos en lenguaje imperativo. Por otra parte los adversarios se modelan como modulos abstractos, modulos cuyo codigo es desconocido y puede cuantificarse.
 
+%El enfoque de juego consiste en la interaccion de un retador y un adversario, donde se especifica explicitamente la meta que adversario intenta alcanzar, como por ejemplo suponer de manera correcta una porcion de informacion oculta. Usando este enfoque podemos definir seguridad\cite{ref_book1} como
+%
+%\begin{definition} Para todo adversario, la probabilidad de que se alcance la meta no exceda un umbral fijo.
+%\end{definition}
+%
+
+
+EasyCrypt [BDG + 14, BGHZ11] is a framework for interactively finding, constructing, and
+machine-checking security proofs of cryptographic constructions and protocols using the code-
+based sequence of games approach [BR04, BR06, Sho04]. In EasyCrypt, cryptographic games
+and algorithms are modeled as modules, which consist of procedures written in a simple user-
+extensible imperative language featuring while loops and random sampling operations. Adversaries
+are modeled by abstract modules—modules whose code is not known and can be quantified over.
+Modules may be parameterized by abstract modules.
+EasyCrypt has four logics: a probabilistic, relational Hoare logic (pRHL), relating pairs of
+procedures; a probabilistic Hoare logic (pHL) allowing one to carry out proofs about the probability
+of a procedure’s execution resulting in a postcondition holding; an ordinary (possibilistic) Hoare
+logic (HL); and an ambient higher-order logic for proving general mathematical facts and
+connecting judgments in the other logics. Once lemmas are expressed, proofs are carried out
+using tactics, logical rules embodying general reasoning principles, and which transform the
+current lemma (or goal) into zero or more subgoals—sufficient conditions for the original lemma
+to hold. Simple ambient logic goals may be automatically proved using SMT solvers. Proofs may
+be structured as sequences of lemmas, and EasyCrypt’s theories may be used to group together
+related types, predicates, operators, modules, axioms and lemmas. Theory parameters that may
+be left abstract when proving its lemmas—types, operators and predicates—may be instantiated
+via a cloning process, allowing the development of generic proofs that can later be instantiated
+with concrete parameters.
 %
 % ---- Bibliography ----
 %
@@ -70,6 +97,8 @@ Easycrypt es..
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
 Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, 2012.
+\bibitem{ref_book1}
+Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
 \end{thebibliography}
 \end{document}
 \grid
