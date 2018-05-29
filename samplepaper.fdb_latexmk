@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1527544704 "samplepaper.tex" "samplepaper.pdf" "samplepaper" 1527544704
+["pdflatex"] 1527630900 "samplepaper.tex" "samplepaper.pdf" "samplepaper" 1527630900
   "/etc/texmf/web2c/texmf.cnf" 1527281208 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
@@ -57,9 +57,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1527281263 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1527281361 3853564 80c02d7e2b188f718a990863a2fb2d77 ""
   "llncs.cls" 1527039737 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
-  "samplepaper.aux" 1527544704 568 1a6fad3a9a2c990685b6ae8689b4ae6c ""
-  "samplepaper.tex" 1527544700 6519 d4f2986311090952e30e3c67b1e8c461 ""
+  "samplepaper.aux" 1527630900 668 d369daa39fe0d256f83b835499a9cc68 ""
+  "samplepaper.tex" 1527630864 6835 20115ff070b63b8cef6bbc09472c6505 ""
   (generated)
+  "samplepaper.aux"
   "samplepaper.pdf"
   "samplepaper.log"
-  "samplepaper.aux"

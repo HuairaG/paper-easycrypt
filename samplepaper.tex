@@ -58,15 +58,11 @@ Desde siempre las pruebas fueron propensas a errores, lo que naturalmente las pu
 
 Easycrypt es una herramienta que permite de manera interactiva buscar, construir, y realizar comprobaciones en maquina a pruebas de seguridad de construicciones criptograficas usando la secuencialidad del codigo con un enfoque de juego. En Easycrypt los juegos cryptograficos se modelan como modulos, que consisten en procedimientos escritos en lenguaje imperativo. Por otra parte los adversarios se modelan como modulos abstractos, modulos cuyo codigo es desconocido y puede cuantificarse. Desarrollada inicialmente por IMDEA Software Institute, e Inria. Posteriormente se sumo al desarrollo la École Polytechnique (Escuela Politecnica). IMDEA software institute es un instituto para el estudio avanzado de tecnologias para el desarrollo de software asentado en Madrid, Espana. Inria es un centro de investigación francés especializado en Ciencias de la Computación, teoría de control y matemáticas aplicadas. Por ultimo, la École Polytechnique es una gran escuela de ingenieros francesa bajo la tutela del Ministerio de Defensa.
 
-El primer prototipo de EasyCrypt fue lanzado en 2009. Luego en 2012 se le hizo una reimplementacion completa con el objetivo de superar varias de las limitaciones que revelo el protopipo. Actualmente se encuentra en la version 1.0 que fue liberada el 10 Octubre de 2017. Desde su reimplementacion EasyCrypt busco mejorar su mantenibilidad, proveer una interfaz interactiva para que el usuario pueda realizar pruebas complejas y proveer las bases requeridas para llevar a cabo algunos razonamientos criptograficos estandares.
+El primer prototipo de EasyCrypt fue lanzado en 2009. Luego en 2012 se le hizo una reimplementacion completa con el objetivo de superar varias de las limitaciones que revelo el protopipo. Actualmente se encuentra en la version 1.0 que fue liberada el 10 Octubre de 2017. Desde el inicio EasyCrypt se ejecuto por linea de comandos, requeria que el usuario escriba las especificaciones criptograficas en un lenguaje de expresiones tipadas propio de la herramienta, con fuertes similitudes con los modulos de OCaml\cite{ref_webpage1}. Luego de su reimplementacion fue posible ademas usar una interfaz interactiva en la que el usuario puede simular paso a paso la verificacion de su especificacion, y tambien contar con la capacidad de verificar pruebas mas complejas. Para ello los desarrolladores permitieron que EasyCrypt pueda ejecutar scripts interactivamente en Proof General\cite{ref_webpage2}, tambien debian proveer las bases requeridas para llevar a cabo algunos razonamientos criptograficos estandares para lo cual implementaron cuatro logicas que pueden ser usadas para crear argumentos híbridos.
 
+Un aspecto fundamental que presenta la herramienta es el de darle la posibilidad al usuario de elegir el enfoque por el cual quiere verificar su especificacion criptografica, ya que es posible elegir interactivamente una o mas tecnicas de reduccion, decidir si realizar chequeo fuerte o debil.%Agregar algo mas a este parrafo?
 
-
-%third, develop and implement the necessary foundations required to carry some standard cryptographic reasonings that were not supported by the initial prototype, such as hybrid arguments and simulation-based security proofs. To achieve its goals, EasyCrypt implements a probabilistic Hoare logic pHL for bounding the probability of post-conditions, and embeds pRHL and pHL into an ambient logic that can for instance be used to perform hybrid arguments. In addition, it implements a module system and a theory mechanism that support compositional proofs.
-
-%These developments have expanded significantly the scope of potential applications of EasyCrypt and enabled the formalization of examples that were previously out of reach of the initial prototype. For instance, we have formalized the security of two protocols based on garbled circuits: Yao's secure function evaluation protocol and Gennaro-Gentry-Parno verifiable computation protocol. Moreover, we have formalized a proof of security for authenticated key-exchange protocols, and derived proofs under weaker assumptions for the NAXOS and NETS protocols.
-
-
+% permiten transformar los lemas expresados en cero o mas sublemas—con condiciones suficientes para que satisfaga el lema original. Luego los sublemas suficientemente simples pueden ser probados por SMT solvers. Ya que las pruebas en EasyCrypt son estructuradas como como una secuencia de lemas, esto prermite que sea posible expresar pruebas complejas mediante la interfaz.
 
 %El enfoque de juego consiste en la interaccion de un retador y un adversario, donde se especifica explicitamente la meta que adversario intenta alcanzar, como por ejemplo suponer de manera correcta una porcion de informacion oculta. Usando este enfoque podemos definir seguridad\cite{ref_book1} como
 %
@@ -84,6 +80,10 @@ El primer prototipo de EasyCrypt fue lanzado en 2009. Luego en 2012 se le hizo u
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
 Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, 2012.
+\bibitem{ref_webpage1}
+OCaml Website: (2013) https://ocaml.org.
+\bibitem{ref_webpage2}
+Proof-General Website: (2016) https://proofgeneral.github.io.
 %\bibitem{ref_book1}
 %Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
 \end{thebibliography}
