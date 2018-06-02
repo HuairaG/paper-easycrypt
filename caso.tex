@@ -1,0 +1,97 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+
+\title{Paper Title}
+%If Title is too long, use \titlerunning
+%\titlerunning{Short Title}
+
+%Single insitute
+\author{Diego Lupi\and Pedro Nieto\and Huaira Gómez}
+%If there are too many authors, use \authorrunning
+%\authorrunning{First Author et al.}
+\institute{FaMAF - Universidad Nacional de Córdoba, Córdoba, Argentina}
+
+%% Multiple insitutes - ALTERNATIVE to the above
+% \author{%
+%     Firstname Lastname\inst{1} \and
+%     Firstname Lastname\inst{2}
+% }
+%
+%If there are too many authors, use \authorrunning
+%  \authorrunning{First Author et al.}
+%
+%  \institute{
+%      Insitute 1\\
+%      \email{...}\and
+%      Insitute 2\\
+%      \email{...}
+%}
+
+\maketitle
+
+\begin{abstract}
+Easycrypt\cite{ref_article1} es una herramienta automatizada que soporta la construcción y verificación de pruebas de seguridad de sistemas criptográficos. Permite mejorar la confianza en sistemas criptográficos mediante la entrega de pruebas verificadas formalmente que resultan en sus metas propuestas. Provee una plataforma versátil que soporta pruebas automatizadas pero también permite al usuario realizar puebas complejas de manera interactiva entrelazando la verificación del programa con la formalización de las matemáticas, hecho fundamental al formalizar pruebas criptográficas. Con este paper nos proponemos mostrar las caracteristicas de esta herramienta y compararla con herramientas similares.
+
+\keywords{Easycrypt  \and Game-based cryptographic proofs \and Probabilistic.}
+\end{abstract}
+%
+%
+%
+\section{Introducción}
+Desde siempre las pruebas criptograficas fueron propensas a errores, lo que naturalmente las puede llevar a ser erróneas.
+ En particular en las pruebas de seguridad criptograficas la correctitud es critica para mejorar la confianza en el sistema criptografico. Actualmente se tiende a generar mas pruebas de seguridad de las que se pueden verificar y se omiten detalles finos desde un analisis formal que pueden tener grandes efectos en la practica. Teniendo en cuenta que los sistemas criptograficos en el mundo real pueden ser vulnerados, es necesario hacer las verificaciones sobre los pruebas de los sistemas criptograficos para evitar un desastre en el area de la seguridad.
+
+Easycrypt es una herramienta automatizada que permite la construccion de pruebas de seguridad de sistemas criptograficos y su verificacion de manera interactiva usando la secuencialidad del codigo con un enfoque de game-based cryptographic proofs. Este enfoque consiste en la interaccion de un retador y un adversario, donde se especifica explicitamente la meta que adversario intenta alcanzar, como por ejemplo suponer de manera correcta una porcion de informacion oculta. En Easycrypt los juegos criptograficos se modelan como modulos, que consisten en procedimientos escritos en lenguaje imperativo. Por otra parte los adversarios se modelan como modulos abstractos, modulos cuyo codigo es desconocido y puede cuantificarse.
+
+ Posteriormente se sumo al desarrollo la École Polytechnique (Escuela Politecnica). IMDEA software institute es un instituto para el estudio avanzado de tecnologias para el desarrollo de software asentado en Madrid, España. Inria es un centro de investigación francés especializado en Ciencias de la Computación, teoría de control y matemáticas aplicadas. Por ultimo, la École Polytechnique es una gran escuela de ingenieros francesa bajo la tutela del Ministerio de Defensa.
+
+El primer prototipo de EasyCrypt lanzado en 2009 fue desarrollado por IMDEA Software Institute, e Inria. Constaba de una interfaz de linea de comando y funcionalidades muy acotadas. Posteriormente se sumo al desarrollo la École Polytechnique (Escuela Politecnica). IMDEA software institute es un instituto para el estudio avanzado de tecnologias para el desarrollo de software asentado en Madrid, España. Inria es un centro de investigación francés especializado en Ciencias de la Computación, teoría de control y matemáticas aplicadas. Por ultimo, la École Polytechnique es una gran escuela de ingenieros francesa bajo la tutela del Ministerio de Defensa. En el año 2012 se le hizo una reimplementacion completa al prototipo con el objetivo de superar varias de las limitaciones que este revelo. Actualmente se encuentra en la version 1.0 que fue liberada el 10 Octubre de 2017. En esta version los desarrolladores permitieron que EasyCrypt pueda ejecutar scripts interactivamente en Proof General\cite{ref_webpage2}, dandole a la herramienta una interfaz grafica interactiva en la que el usuario puede simular paso a paso la verificacion de su especificacion, otorgando la posibilidad al usuario de elegir el enfoque por el cual quiere verificar la misma. Por otro lado para proveer las bases requeridas para llevar a cabo algunos razonamientos criptograficos estandares se implementaron cuatro logicas, lo que permite realizar pruebas mas complejas, que en versiones anteriores no eran verificables.
+
+%Desde el inicio EasyCrypt se ejecuto por linea de comandos, requeria que el usuario escriba las especificaciones criptograficas en un lenguaje de expresiones tipadas propio de la herramienta, con fuertes similitudes con los modulos de OCaml\cite{ref_webpage1}.
+
+%ya que es posible elegir interactivamente una o mas tecnicas de reduccion, decidir si realizar chequeo fuerte o debil.
+%Agregar algo mas a este parrafo?
+
+% permiten transformar los lemas expresados en cero o mas sublemas—con condiciones suficientes para que satisfaga el lema original. Luego los sublemas suficientemente simples pueden ser probados por SMT solvers. Ya que las pruebas en EasyCrypt son estructuradas como como una secuencia de lemas, esto prermite que sea posible expresar pruebas complejas mediante la interfaz.
+
+%El enfoque de juego consiste en la interaccion de un retador y un adversario, donde se especifica explicitamente la meta que adversario intenta alcanzar, como por ejemplo suponer de manera correcta una porcion de informacion oculta. Usando este enfoque podemos definir seguridad\cite{ref_book1} como
+%
+%\begin{definition} Para todo adversario, la probabilidad de que se alcance la meta no exceda un umbral fijo.
+%\end{definition}
+%
+% ---- Bibliography ----
+%
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+% \bibliographystyle{splncs04}
+% \bibliography{mybibliography}
+%
+\begin{thebibliography}{8}
+\bibitem{ref_article1}
+Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, 2012.
+\bibitem{ref_webpage1}
+OCaml Website: (2013) https://ocaml.org.
+\bibitem{ref_webpage2}
+Proof-General Website: (2016) https://proofgeneral.github.io.
+%\bibitem{ref_book1}
+%Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
+\end{thebibliography}
+\end{document}
+\grid

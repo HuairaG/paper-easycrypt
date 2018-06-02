@@ -5,9 +5,6 @@
 \documentclass[runningheads]{llncs}
 %
 \usepackage{graphicx}
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -16,58 +13,110 @@
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
 
 \begin{document}
-
-\title{Paper Title}
-%If Title is too long, use \titlerunning
-%\titlerunning{Short Title}
-
-%Single insitute
-\author{Diego Lupi\and Pedro Nieto\and Huaira Gómez}
-%If there are too many authors, use \authorrunning
-%\authorrunning{First Author et al.}
-\institute{FaMAF - Universidad Nacional de Córdoba, Córdoba, Argentina}
-
-%% Multiple insitutes - ALTERNATIVE to the above
-% \author{%
-%     Firstname Lastname\inst{1} \and
-%     Firstname Lastname\inst{2}
-% }
 %
-%If there are too many authors, use \authorrunning
-%  \authorrunning{First Author et al.}
+\title{Contribution Title\thanks{Supported by organization x.}}
 %
-%  \institute{
-%      Insitute 1\\
-%      \email{...}\and
-%      Insitute 2\\
-%      \email{...}
-%}
-
-\maketitle
-
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
+Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+%
+\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Princeton University, Princeton NJ 08544, USA \and
+Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
+\email{lncs@springer.com}\\
+\url{http://www.springer.com/gp/computer-science/lncs} \and
+ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
+\email{\{abc,lncs\}@uni-heidelberg.de}}
+%
+\maketitle              % typeset the header of the contribution
+%
 \begin{abstract}
-Easycrypt\cite{ref_article1} es una herramienta automatizada que soporta la construcción y verificación de pruebas de seguridad de sistemas criptográficos. Permite mejorar la confianza en sistemas criptográficos mediante la entrega de pruebas verificadas formalmente que resultan en sus metas propuestas. Provee una plataforma versátil que soporta pruebas automatizadas pero también permite al usuario realizar puebas complejas de manera interactiva entrelazando la verificación del programa con la formalización de las matemáticas, hecho fundamental al formalizar pruebas criptográficas.
+The abstract should briefly summarize the contents of the paper in
+15--250 words.
 
-\keywords{Easycrypt  \and Game-based cryptographic proofs \and Probabilistic.}
+\keywords{First keyword  \and Second keyword \and Another keyword.}
 \end{abstract}
 %
 %
 %
-\section{Introducción}
-Desde siempre las pruebas fueron propensas a errores, lo que naturalmente las puede llevar a ser erróneas. En particular las pruebas de seguridad criptograficas la correctitud es critica para mejorar la confianza en el sistema criptografico. Actualmente se tiede a generar mas pruebas de seguridad de las que se pueden verificar, se omiten detalles finos desde un analisis formal que pueden tener grandes efectos en la practica. Teniendo en cuenta que los sistemas criptograficos en el mundo real pueden ser vulnerados, es necesario hacer las verificaciones sobre los pruebas de los sistemas criptograficos para evitar un desastre en el area de la seguridad.
+\section{First Section}
+\subsection{A Subsection Sample}
+Please note that the first paragraph of a section or subsection is
+not indented. The first paragraph that follows a table, figure,
+equation etc. does not need an indent, either.
 
-Easycrypt es una herramienta que permite de manera interactiva buscar, construir, y realizar comprobaciones en maquina a pruebas de seguridad de construicciones criptograficas usando la secuencialidad del codigo con un enfoque de juego. En Easycrypt los juegos cryptograficos se modelan como modulos, que consisten en procedimientos escritos en lenguaje imperativo. Por otra parte los adversarios se modelan como modulos abstractos, modulos cuyo codigo es desconocido y puede cuantificarse. Desarrollada inicialmente por IMDEA Software Institute, e Inria. Posteriormente se sumo al desarrollo la École Polytechnique (Escuela Politecnica). IMDEA software institute es un instituto para el estudio avanzado de tecnologias para el desarrollo de software asentado en Madrid, Espana. Inria es un centro de investigación francés especializado en Ciencias de la Computación, teoría de control y matemáticas aplicadas. Por ultimo, la École Polytechnique es una gran escuela de ingenieros francesa bajo la tutela del Ministerio de Defensa.
+Subsequent paragraphs, however, are indented.
 
-El primer prototipo de EasyCrypt fue lanzado en 2009. Luego en 2012 se le hizo una reimplementacion completa con el objetivo de superar varias de las limitaciones que revelo el protopipo. Actualmente se encuentra en la version 1.0 que fue liberada el 10 Octubre de 2017. Desde el inicio EasyCrypt se ejecuto por linea de comandos, requeria que el usuario escriba las especificaciones criptograficas en un lenguaje de expresiones tipadas propio de la herramienta, con fuertes similitudes con los modulos de OCaml\cite{ref_webpage1}. Luego de su reimplementacion fue posible ademas usar una interfaz interactiva en la que el usuario puede simular paso a paso la verificacion de su especificacion, y tambien contar con la capacidad de verificar pruebas mas complejas. Para ello los desarrolladores permitieron que EasyCrypt pueda ejecutar scripts interactivamente en Proof General\cite{ref_webpage2}, tambien debian proveer las bases requeridas para llevar a cabo algunos razonamientos criptograficos estandares para lo cual implementaron cuatro logicas que pueden ser usadas para crear argumentos híbridos.
+\subsubsection{Sample Heading (Third Level)} Only two levels of
+headings should be numbered. Lower level headings remain unnumbered;
+they are formatted as run-in headings.
 
-Un aspecto fundamental que presenta la herramienta es el de darle la posibilidad al usuario de elegir el enfoque por el cual quiere verificar su especificacion criptografica, ya que es posible elegir interactivamente una o mas tecnicas de reduccion, decidir si realizar chequeo fuerte o debil.%Agregar algo mas a este parrafo?
+\paragraph{Sample Heading (Fourth Level)}
+The contribution should contain no more than four levels of
+headings. Table~\ref{tab1} gives a summary of all heading levels.
 
-% permiten transformar los lemas expresados en cero o mas sublemas—con condiciones suficientes para que satisfaga el lema original. Luego los sublemas suficientemente simples pueden ser probados por SMT solvers. Ya que las pruebas en EasyCrypt son estructuradas como como una secuencia de lemas, esto prermite que sea posible expresar pruebas complejas mediante la interfaz.
+\begin{table}
+\caption{Table captions should be placed above the
+tables.}\label{tab1}
+\begin{tabular}{|l|l|l|}
+\hline
+Heading level &  Example & Font size and style\\
+\hline
+Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
+1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
+2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
+3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
+4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
+\hline
+\end{tabular}
+\end{table}
 
-%El enfoque de juego consiste en la interaccion de un retador y un adversario, donde se especifica explicitamente la meta que adversario intenta alcanzar, como por ejemplo suponer de manera correcta una porcion de informacion oculta. Usando este enfoque podemos definir seguridad\cite{ref_book1} como
+
+\noindent Displayed equations are centered and set on a separate
+line.
+\begin{equation}
+x + y = z
+\end{equation}
+Please try to avoid rasterized images for line-art diagrams and
+schemas. Whenever possible, use vector graphics instead (see
+Fig.~\ref{fig1}).
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig1.eps}
+\caption{A figure caption is always placed below the illustration.
+Please note that short captions are centered, while long ones are
+justified by the macro package automatically.} \label{fig1}
+\end{figure}
+
+\begin{theorem}
+This is a sample theorem. The run-in heading is set in bold, while
+the following text appears in italics. Definitions, lemmas,
+propositions, and corollaries are styled the same way.
+\end{theorem}
 %
-%\begin{definition} Para todo adversario, la probabilidad de que se alcance la meta no exceda un umbral fijo.
-%\end{definition}
+% the environments 'definition', 'lemma', 'proposition', 'corollary',
+% 'remark', and 'example' are defined in the LLNCS documentclass as well.
+%
+\begin{proof}
+Proofs, examples, and remarks have the initial word in italics,
+while the following text appears in normal font.
+\end{proof}
+For citations of references, we prefer the use of square brackets
+and consecutive numbers. Citations using labels or the author/year
+convention are also acceptable. The following bibliography provides
+a sample reference list with entries for journal
+articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
+book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
+and a homepage~\cite{ref_url1}. Multiple citations are grouped
+\cite{ref_article1,ref_lncs1,ref_book1},
+\cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
 %
 % ---- Bibliography ----
 %
@@ -79,13 +128,23 @@ Un aspecto fundamental que presenta la herramienta es el de darle la posibilidad
 %
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
-Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, 2012.
-\bibitem{ref_webpage1}
-OCaml Website: (2013) https://ocaml.org.
-\bibitem{ref_webpage2}
-Proof-General Website: (2016) https://proofgeneral.github.io.
-%\bibitem{ref_book1}
-%Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
+Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+
+\bibitem{ref_lncs1}
+Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+
+\bibitem{ref_book1}
+Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+Location (1999)
+
+\bibitem{ref_proc1}
+Author, A.-B.: Contribution title. In: 9th International Proceedings
+on Proceedings, pp. 1--2. Publisher, Location (2010)
+
+\bibitem{ref_url1}
+LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
+Oct 2017
 \end{thebibliography}
 \end{document}
-\grid
