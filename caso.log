@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.23)  3 JUN 2018 20:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.4.23)  3 JUN 2018 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -593,28 +593,28 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 52.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<tabla_1.png, id=12, 713.66624pt x 209.78375pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<tabla_1.png, id=15, 713.66624pt x 209.78375pt>
 File: tabla_1.png Graphic file (type png)
  <use tabla_1.png>
-Package pdftex.def Info: tabla_1.png used on input line 92.
+Package pdftex.def Info: tabla_1.png used on input line 93.
 (pdftex.def)             Requested size: 277.69987pt x 81.62965pt.
- [2] [3 <./tabla_1.png>] [4] (./caso.aux) ) 
+ [3 <./tabla_1.png>] [4] (./caso.aux) ) 
 Here is how much of TeX's memory you used:
  2520 strings out of 494953
  31685 string characters out of 6180977
- 100975 words of memory out of 5000000
+ 99975 words of memory out of 5000000
  5773 multiletter control sequences out of 15000+600000
  9282 words of font info for 22 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,6n,23p,3330b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/diego/.texmf-var/fonts/pk/lj
-four/jknappen/ec/ecbx1200.600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecbx0900.600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0
-900.600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> 
-</home/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on caso.pdf (4 pages, 91521 bytes).
+ 37i,6n,23p,3330b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/diego/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecbx1200.600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecbx0900.600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.
+600pk> </home/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </ho
+me/diego/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on caso.pdf (4 pages, 91496 bytes).
 PDF statistics:
  238 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream
