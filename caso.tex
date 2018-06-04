@@ -13,6 +13,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -103,17 +104,18 @@ EasyCrypt esta centrado en el enfoque game-based consiste en la interaccion de u
 A su vez, la herramienta tiene cuatro logicas, la logica probabilistica, relacional de Hoare (pRHL), que relaciona pares de procedimientos; una logica probabilistica de Hoare (pHL), que permite probar la probabilidad de que una post-condicion se mantenga luego de la ejecucion de un procedimiento; una logica posibilistica de Hoare (HL); y una logica ambiental de alto orden para probar hechos matematicos y conectar los juicios de las otras logicas. Una vez que se expresaron las metas, las pruebas son llevadas a cabo usando tacticas, las cuales permiten transformar los lemas expresados en cero o mas sublemas—con condiciones suficientes para que satisfaga el lema original. Luego los sublemas suficientemente simples pueden ser probados por SMT solvers.
 
 \subsection{Usabilidad}
-EasyCrypt se puede utilizar mediante lineas de comando o mediante una interfaz grafica interactiva la cual se ejecuta sobre Emacs\Cite{ref_webpage2}. Para correrlo mediante lineas de comando se necesita pasarle como argumento el archivo del modelo que debe ser del formato \textit{file.ec}, luego se puede avanzar sobre la ejecucion del codigo o aplicar tacticas mediante nuevos comandos. Por otra parte la ejecucion mediante la interfaz grafica requiere ejecutar Emacs y abrir un archivo de formato \textit{file.ec} y automaticamente se carga una nueva interfaz que permite avanzar en paso a paso sobre la ejecucion del codigo y aplicar tacticas muy facilmente.
+EasyCrypt se puede utilizar mediante lineas de comando o mediante una interfaz grafica interactiva la cual se ejecuta sobre Emacs\cite{ref_webpage2}. Para correrlo mediante lineas de comando se necesita pasarle como argumento el archivo del modelo que debe ser del formato \textit{file.ec}, luego se puede avanzar sobre la ejecucion del codigo o aplicar tacticas mediante nuevos comandos. Por otra parte la ejecucion mediante la interfaz grafica requiere ejecutar Emacs y abrir un archivo de formato \textit{file.ec} y automaticamente se carga una nueva interfaz que permite avanzar en paso a paso sobre la ejecucion del codigo y aplicar tacticas muy facilmente.
 
-%
-% ---- Bibliography ----
-%
-%
-% BibTeX users should specify bibliography style 'splncs04'.
-% References will then be sorted and formatted in the correct style.
-% \bibliographystyle{splncs04}
-% \bibliography{mybibliography}
-%
+\section{Comparación con otras herramientas}
+Como se nombró anteriormente Easycrypt es una herramienta que se utiliza para la verificación de pruebas de seguridad de sistemas criptográficos, pero Easycrypt no es la única. Para saber sus limitaciones y sus extensiones se comparó con otras herramientas(CertiCrypt, Verypto, FCF). Uno de los principales objetivos es la legibilidad por dos razones. En primer lugar, las definiciones de seguridad deben parecerse a las de la literatura criptográfica, de modo que los criptógrafos puedan comprenderlas y evaluarlas. Segundo, la sintaxis intuitiva apoya a los usuarios durante la formalización, ya que pueden enfocarse en formalizar los argumentos en lugar de que tratar de entender programas poco legibles, todos los marcos logran buena legibilidad, pero de diferentes maneras. CertiCrypt y EasyCrypt se utiliza un lenguaje de procedimiento imperativo en sus lógicas. Ellos modelan de cerca la idea de Bellare y Rogaway de un lenguaje con estado con oráculos como procedimientos\cite{ref_article3}. Verypto integra profundamente un lenguaje de orden superior con referencias mutables basadas en índices de Bruijn en HOL\cite{ref_article4}. La legibilidad se recupera al reflejar la sintaxis en el lenguaje de términos de HOL mediante el análisis y pretty-printing tricks. Por el contrario, FCF y nuestro marco insertan superficialmente un lenguaje funcional con secuenciación monádica en Coq e Isabelle/HOL, respectivamente\cite{ref_article5}. Otro objetivo es la expresividad, la misma tiene dos dimensiones. Primero, la sintaxis y el dominio semántico determinan la expresividad del lenguaje, CertiCrypt y EasyCrypt admiten distribuciones discretas de subprobabilidad y un lenguaje de procedimiento, pero no un operador de punto fijo. Los puntos fijos no aumentan la expresividad en un combinador de tiempo, sino que conducen a formulaciones de programas más naturales. EasyCrypt también proporciona un sistema modular para admitir la abstracción y la reutilización. Verypto es el marco más general, ya que se basa en la teoría de medidas y, por lo tanto, admite distribuciones continuas y funciones de orden superior. La semántica de FCF permite solo distribuciones de probabilidad con soporte finito, por lo que no se puede definir un operador de punto fijo. La sintaxis restringe aún más los efectos probabilísticos al muestreo aleatorio de cadenas de bits y probabilidades condicionales. En segundo lugar, la lógica determinan qué tipo de propiedades de seguridad se pueden formalizar. Todos los marcos admiten pruebas de seguridad concretas. Gracias a la integración profunda, CertiCrypt y Verypto también admiten declaraciones sobre la eficacia y, por lo tanto, declaraciones de seguridad asintóticas, lo cual es imposible tanto para EasyCrypt, ya que las funciones de HOL son extensiones. FCF viene con un modelo de costo axiomático para la eficiencia, que no está formalmente conectado a un modelo operativo. Otro objetivo fundamental es la confiabilidad, el código confiable influye en la confiabilidad de una prueba mecanizada y debe ser lo más pequeña posible. Los asistentes de prueba como Coq e Isabelle consisten en un kernel y además pueden producir términos de prueba y objetos de prueba que un verificador independiente puede certificar. EasyCrypt no tiene un kernel, por lo que debe confiarse en la implementación completa en OCaml y en los SMT solvers lo cual es una desventaja.
+
+EasyCrypt es el sucesor de CertiCrypt ya que presenta un mecanismo de compilar pruebas EasyCrypt en pruebas de CertiCrypt y ademas en EasyCrypt el esfuerzo humano es menor como se ve la fig.1. En fig.1 se compara CertiCrypt con EasyCrypt en varias pruebas de seguridad formalizadas en ambos sistemas. Los tiempos se miden en una Intel Core 2 Duo con 2.8GHz y 4GB de RAM sobre Mac OS X 10.6.7.
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{tabla_1}
+  \caption{}
+  \label{fig:simple}
+\end{figure}
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
 Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, ITP, 2012.
@@ -128,8 +130,18 @@ Computer Science, pp. 1–6, Springer Berlin Heidelberg, 2012.
 Gilles Barthe, Juan Manuel Crespo, Yassine Lakhnech, Benedikt Schmidt. Mind the Gap: Modular Machine-checked Proofs of One-Round Key Exchange Protocols. 34th Annual International Conference on the Theory and Applications of Cryptographic Techniques, 2015.
 \bibitem{ref_webpage2}
 Emacs webpage: https://www.gnu.org/software/emacs/.
-%\bibitem{ref_book2}
-%Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
+\bibitem{ref_article3}
+Bellare, M., Rogaway, P.: The security of triple encryption and a framework for
+code-based game-playing proofs. In: EUROCRYPT 2006. LNCS, vol. 4004, pp.
+409–426. Springer (2006)
+\bibitem{ref_article4}
+Backes, M., Berg, M., Unruh, D.: A formal language for cryptographic pseudocode.
+In: LPAR 2008. LNCS, vol. 5330, pp. 353–376. Springer (2008)
+\bibitem{ref_article5}
+Shoup, V.: Sequences of games: A tool for taming complexity in security proofs.
+Cryptology ePrint Archive, Report 2004/332 (2004)
 \end{thebibliography}
 \end{document}
 \grid
+
+
