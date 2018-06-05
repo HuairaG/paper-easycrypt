@@ -122,14 +122,21 @@ EasyCrypt es presentado como el sucesor de CertiCrypt ya que  presenta un mecani
   \label{fig:simple}
 \end{figure}
 
-\section{Casos de uso}
+\section{Casos de estudio de EasyCript}
 EasyCrypt es util en sistemas de seguridad. Estos sistemas tienen una fuerte dependencia en la criptografia para garantizar las propiedades deseadas de los mismos. Por lo tanto para que estos sistemas sean correctos (seguros) es necesario contar con una demostracion de que los esquemas criptograficos utilizados por el sistema lo son. Pero estas demostraciones pueden ser propensas a errores, por lo que tambien deben ser provadas correctas, y este es el trabajo de EasyCript. Acontinuacion se pasa a mostrar dos ejemplos de la utilidad e importancia de la herramienta.
 
-\textbf{Demostracion formal de CMAC y sus variantes\cite{ref_article5}:}
-El estandar CMAC cuando fue propuesto inicialmente por Iwata y Kurosawa como OMAC1 fue acompañada por una compleja prueba de seguridad basada en juego. Se utilizo EasyCrypt para formalizar una prueba de \textbf{unforgeability} para CMAC. Para esto fue necesario una mejora y extencion a la libreria estandar de EasyCrypt. Ademas de demostrar la seguridad similar a la obtenida por Iwata y Kurosawa\cite{ref_article6} en CMAC, se probo la seguridad de construcciones intermedias como ECBC, FCBC y XCBC\cite{ref_article7}.
+\textbf{CMAC y sus variantes\cite{ref_article5}:}
+El estandar CMAC cuando fue propuesto inicialmente por Iwata y Kurosawa como OMAC1 fue acompañada por una compleja prueba de seguridad basada en juego. Se utilizo EasyCrypt para formalizar una prueba de \textit{unforgeability} para CMAC. Para esto fue necesario una mejora y extencion a la libreria estandar de EasyCrypt. Ademas de demostrar la seguridad similar a la obtenida por Iwata y Kurosawa\cite{ref_article6} en CMAC, se probo la seguridad de construcciones intermedias como ECBC, FCBC y XCBC\cite{ref_article7}.
 
 \textbf{Prueba de \textbf{IND-CPA security} en Hashed Elgamal:}
 La seguridad de hashed Elgamal puede ser reducida a la suposición de \textbf{Computational Diffie-Hellman} (CDH). Esta es la supocicion de que es dificil computar \begin{equation} g^{xy} \end{equation} teniendo \begin{equation} g^{x} \end{equation} y \begin{equation} g^{y} \end{equation} donde x e y son elementos random desitribuidos uniformemente  en $\mathbb{Z}_q$. Esta prueba consta de 243 lineas de codigo y tardó 33s. Los tiempos fueron medidos en un procesador 2.8GHz Intel Core 2 Duo con 4GB de memoria RAM bajo un sistema operativo Mac OS X 10.6.7.
+
+\section{Caso de estudio: Demostracion formal de CMAC y sus variantes}
+\textbf{Introduccion.} Un codigo de autentificacion de mensajes(MAC) es una pequeña porcion de informacion (\textit{tag}) que se agrega a un mensaje y se usa para verificar su autenticidad e integridad. Una MAC se considera segura cuando un a esquema de algoritmos generadores de \textit{tags} de MACs le resulta extremadamente dificil producir un \textit{tag} valido sin conocer la clave secreta, aun teniendo la habilidad de obtener \textit{tags} validos de mensajes especificos. CMAC es actualmente el estandar MAC, extensamente usado en la practica. Esta basado en \textit{cypher block chaining MAC} (CBC-MAC), el cual es un esquema muy sencillo que permite la cronstruccion de un esquema MAC para un mensaje de tamaño fijo que se restringe a partir del tamaño de bloque de un \textit{block cypher} que se asume seguro. Para sobreponerse a esta restricción se propusieron variantes de CBC-MAC llamadas ECBC, FCBC, XCBC. Sin embargo, cada uno de estos esquemas requiere una llave mas larga que la solicitada por el \textit{block cypher}. Por otra parte CMAC fue la primer variante \textit{one-key CBC-MAC}, solo usa llave de \textit{block cypher} y fue probado seguro por Iwata y Kurosawa.
+
+%En el area de estudio de la cryptografia una nocion importante a la hora de diseñar un esquema criptografico es el de indistinguibilidad respecto a una \textit{funcion random}. 
+
+
 
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
@@ -159,9 +166,6 @@ Cécile Baritel-Ruet, François Dupressoir, Pierre-Alain Fouque and Benjamin Gr�
 Tetsu Iwata and Kaoru Kurosawa. OMAC: One-key CBC MAC. In FSE, volume 2887, pages 129–153. Springer, 2003.
 \bibitem{ref_article7}
 John Black and Phillip Rogaway. CBC MACs for arbitrary-length messages: The three-key constructions. Journal of Cryptology, 18(2):111–131, 2005
-
-%\bibitem{ref_book1}
-%Jonathan Katz, Yehuda Lindell: Introduction to modern cryptography. 2nd edn. CHAPMAN \& HALL/CRC, Boca Raton, FL (2008).
 \end{thebibliography}
 \end{document}
 \grid
