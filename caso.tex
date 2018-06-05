@@ -115,12 +115,22 @@ Como se nombró anteriormente Easycrypt es una herramienta que se utiliza para l
  
 EasyCrypt es presentado como el sucesor de CertiCrypt ya que  presenta un mecanismo para compilar pruebas de CertiCrypt en EasyCrypt. Ademas en EasyCrypt el esfuerzo humano es menor como se ve la fig.1 donde se compara CertiCrypt con EasyCrypt en varias pruebas de seguridad formalizadas en ambos sistemas. Los tiempos se miden en una Intel Core 2 Duo con 2.8GHz y 4GB de RAM sobre Mac OS X 10.6.7.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=.8\textwidth]{tabla_1}
-  \caption{}
-  \label{fig:simple}
-\end{figure}
+
+
+\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ casos de estudio & \multicolumn{2}{|c|}{CertiCrypt} & \multicolumn{2}{|c|}{EasyCrypt} \\
+ 
+ &Lines&Time&Lines&Time\\
+ \hline
+ ElGamal(IND-CPA)   & 565    &45s &190 &12s \\
+ Hashed ElGamal(IND-CPA)& 1255  & 1m 5s & 243  & 33s\\
+ Full-Domain Hash(EF-CMA) &2035 & 5m 46s&  509 & 1m 26s\\
+ Cramer-Shoup(IND-CCA)    &n/a & n/a& 1637 &5m 12s\\
+ \hline
+\end{tabular}
+
+
 
 \section{Casos de estudio de EasyCript}
 EasyCrypt es util en sistemas de seguridad. Estos sistemas tienen una fuerte dependencia en la criptografia para garantizar las propiedades deseadas de los mismos. Por lo tanto para que estos sistemas sean correctos (seguros) es necesario contar con una demostracion de que los esquemas criptograficos utilizados por el sistema lo son. Pero estas demostraciones pueden ser propensas a errores, por lo que tambien deben ser provadas correctas, y este es el trabajo de EasyCript. Acontinuacion se pasa a mostrar dos ejemplos de la utilidad e importancia de la herramienta.
