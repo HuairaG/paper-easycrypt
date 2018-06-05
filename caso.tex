@@ -23,12 +23,12 @@
 
 \begin{document}
 
-\title{Paper Title}
+\title{EasyCript, una herramienta para pruebas criptograficas}
 %If Title is too long, use \titlerunning
 %\titlerunning{Short Title}
 
 %Single insitute
-\author{Diego Lupi\and Pedro Nieto\and Huaira Gómez}
+\author{Diego Lupi, Pedro Nieto, Huaira Gómez}
 %If there are too many authors, use \authorrunning
 %\authorrunning{First Author et al.}
 \institute{FaMAF - Universidad Nacional de Córdoba, Córdoba, Argentina}
@@ -104,7 +104,7 @@ EasyCrypt esta centrado en el enfoque game-based consiste en la interaccion de u
 A su vez, la herramienta tiene cuatro logicas, la logica probabilistica, relacional de Hoare (pRHL), que relaciona pares de procedimientos; una logica probabilistica de Hoare (pHL), que permite probar la probabilidad de que una post-condicion se mantenga luego de la ejecucion de un procedimiento; una logica posibilistica de Hoare (HL); y una logica ambiental de alto orden para probar hechos matematicos y conectar los juicios de las otras logicas. Una vez que se expresaron las metas, las pruebas son llevadas a cabo usando tacticas, las cuales permiten transformar los lemas expresados en cero o mas sublemas—con condiciones suficientes para que satisfaga el lema original. Luego los sublemas suficientemente simples pueden ser probados por SMT solvers.
 
 \subsection{Usabilidad}
-EasyCrypt se puede utilizar mediante lineas de comando o mediante una interfaz grafica interactiva la cual se ejecuta sobre Emacs\cite{ref_webpage2}. Para correrlo mediante lineas de comando se necesita pasarle como argumento el archivo del modelo que debe ser del formato \textit{file.ec}, luego se puede avanzar sobre la ejecucion del codigo o aplicar tacticas mediante nuevos comandos. Por otra parte la ejecucion mediante la interfaz grafica requiere ejecutar Emacs y abrir un archivo de formato \textit{file.ec} y automaticamente se carga una nueva interfaz que permite avanzar en paso a paso sobre la ejecucion del codigo y aplicar tacticas muy facilmente. Ademas en la ultima version la herramienta esta disponible en MacOSX, Windows y las distribuciones de Linux mas conocidas.
+EasyCrypt se puede utilizar mediante lineas de comando o mediante una interfaz grafica interactiva la cual se ejecuta sobre Emacs\cite{ref_webpage2}. Para correrlo mediante lineas de comando se necesita pasarle como argumento el archivo del modelo que debe ser del formato \textit{file.ec}, luego se puede avanzar sobre la ejecucion del codigo o aplicar tacticas mediante nuevos comandos. Por otra parte la ejecucion mediante la interfaz grafica requiere ejecutar Emacs y abrir un archivo de formato \textit{file.ec} y automaticamente se carga una nueva interfaz que permite avanzar en paso a paso sobre la ejecucion del codigo y aplicar tacticas muy facilmente. Ademas en la ultima version la herramienta esta disponible en MacOSX, Windows y las distribuciones de Linux mas conocidas. Sin embargo, la herramienta presenta serias dificultades para su instalación en distribuciones de Linux, ya que requiere un conocimiento avanzado en el uso de dichos sistemas operativos.
 
 \section{Comparación con otras herramientas}
 Como se nombró anteriormente Easycrypt es una herramienta que se utiliza para la verificación de pruebas de seguridad de sistemas criptográficos, pero no es la única. Para saber sus limitaciones y sus extensiones se comparó con otras herramientas(CertiCrypt, Verypto).
@@ -119,9 +119,9 @@ EasyCrypt es presentado como el sucesor de CertiCrypt ya que  presenta un mecani
 
 \begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|  }
  \hline
- casos de estudio & \multicolumn{2}{|c|}{CertiCrypt} & \multicolumn{2}{|c|}{EasyCrypt} \\
+ & \multicolumn{2}{|c|}{CertiCrypt} & \multicolumn{2}{|c|}{EasyCrypt} \\\cline{2-5}
  
- &Lines&Time&Lines&Time\\
+ &Lines&Time&Lines&Time\\\cline{2-5}
  \hline
  ElGamal(IND-CPA)   & 565    &45s &190 &12s \\
  Hashed ElGamal(IND-CPA)& 1255  & 1m 5s & 243  & 33s\\
@@ -146,9 +146,23 @@ La seguridad de hashed Elgamal puede ser reducida a la suposición de \textbf{Co
 
 Para comprender el mecanismo de CMAC es necesario entender algunos conceptos escenciales de MAC y \textit{block cypher}. Primero, un esquema MAC se compone de tres algoritmos, un algoritmo probabilistico generador de claves, que para la entrada de parámetros de seguridad devuelve una clave \textit{k} $\in$ $\mathcal{K}$ \textit{keyspace}; un algoritmo de \textit{tagging} que dado una clave y un mensaje, genera un \textit{tag}; y un algoritmo de verificación, que dado una clave, un mensaje, y un \textit{tag}, devuelve un booleano que identifica si el \textit{tag} es valido para el mensaje con esa clave. Segundo, un \textit{block cypher} es una familia de permutaciones sobre un conjunto finito de bloques indexado por $\mathcal{K}$.
 
-Para llevar a cabo esta demostración se usaran juegos, algoritmos probabilisticos que describen como puede interactuar un adversario con el esquema que se está tratando de romper su seguridad, y en que consiste dicho quiebre. Entonces la seguridad queda expresada como una propiedad de la probabilidad de que ocurra una violación de seguridad de cualquier adversario, dentro de una clase admisible de adversarios. 
+El esquema de demostración consiste en el uso de juegos, algoritmos probabilisticos que describen como puede interactuar un adversario con el esquema que se está tratando de romper su seguridad, y en que consiste dicho quiebre. Entonces la seguridad queda expresada como una propiedad de la probabilidad de que ocurra una violación de seguridad de cualquier adversario, dentro de una clase admisible de adversarios. Entonces, para verificar la seguridad de CMAC se siguen una serie de pasos a traves de los cuales no solo se prueba CMAC, si no también se verifica la seguridad de ECBC, FCBS, y FCBC. Ya que, si se verifica que ECBC es seguro; luego como ECBC es perfectamente indistinguible de FCBC y CMAC es computacionalmente indistinguible de FCBC; entonces se verifica la seguridad de CMAC.
 
-Ahora que tenemos estos conceptos mas claros nos podemos centrar en el uso de EasyCript para asistir en la demostración.
+\begin{description}
+\item[Seguridad de ECBC:] La probabilidad en este sistema esta definida como una nocion \textit{game-based}, a traves de un juego de busqueda de colisiones, en el cual al adversario $\mathcal{A}$ se le solicita una lista de mensajes de su propia elección, antes de que la funcion de hash \textit{h} sea aleatoriamente elegida de H. El adversario $\mathcal{A}$ tiene exito si la lista de mensajes inicialmente seleccionada contiene dos mensajes distintos que tienen la misma imagen aplicados a \textit{h}.
+
+\item[Seguridad de FCBC] La seguridad de FCBC es equivalente a la seguridad de ECBC. Debido al hecho de que la composicion de dos permutaciones aleatorias independientes se mantiene independiente de una de las permutaciones.
+
+\item[Seguridad de CMAC] Se relaciona la seguridad de CMAC a la de FCBC mediante el uso de las ideas de Iwata y Kurosawa en la que se plantea la indestinguibilidad de ambas. Se agrega una variable aleatoria independiente para prevenir que el adversario acceda diretamente al oraculo del \textit{block cypher}.
+\end{description}
+
+\section{Conclusión}
+
+La herramienta demuestra tener muchas ventajas sobre las alternativas existentes, ya que provee una interfaz grafica intuitiva que permite una ejecución interactiva. También utiliza un lenguaje más expresivo y similar al formalismo de los criptografos, lo que resulta en la reducción del esfuerzo humano al codear y facilita la interpretacion de las pruebas. Si bien la herramienta en sí tiene todas estos pros, existe una falencia en la distribución de la misma, ya que actualmente puede ser compleja su instalación. Por otro lado, la herramienta esta muy centrada a las necesidades de los desarrolladores, y ataca una problematica mediante metodos muy especificos.
+
+Finalmente, EasyCript manifiesta ser uno de los framework más modernos, actualizado, y confiable; al entregar robustas verificaciones.
+
+
 
 %En el area de estudio de la cryptografia una nocion importante a la hora de diseñar un esquema criptografico es el de indistinguibilidad respecto a una \textit{funcion random}. 
 
@@ -157,8 +171,6 @@ Ahora que tenemos estos conceptos mas claros nos podemos centrar en el uso de Ea
 \begin{thebibliography}{8}
 \bibitem{ref_article1}
 Gilles Barthe, Juan Manuel Crespo, Benjamin Gregoire, Cesar Kunz, Santiago Zanella Beguelin. Computer-Aided Cryptographic Proofs. Third International Conference, 2012.
-\bibitem{ref_webpage1}
-OCaml Website: (2013) https://ocaml.org.
 \bibitem{ref_book1}
 G. Barthe, B. Grégoire, and S. Zanella Béguelin, “Probabilistic relational hoare
 logics for computer-aided security proofs,” in Mathematics of Program Construction
@@ -167,6 +179,8 @@ Computer Science, pp. 1–6, Springer Berlin Heidelberg, 2012.
 \bibitem{ref_article2}
 Gilles Barthe, Juan Manuel Crespo, Yassine Lakhnech, Benedikt Schmidt. Mind the Gap: Modular Machine-checked Proofs of One-Round Key Exchange Protocols. 34th Annual International Conference on the Theory and Applications of Cryptographic Techniques, 2015.
 \bibitem{ref_webpage2}
+Emacs website: https: (2015) https://www.gnu.org/software/emacs/.
+\bibitem{ref_webpage1}
 Proof-General Website: (2016) https://proofgeneral.github.io.
 \bibitem{ref_article3}
 Bellare, M., Rogaway, P.: The security of triple encryption and a framework for
@@ -185,5 +199,3 @@ John Black and Phillip Rogaway. CBC MACs for arbitrary-length messages: The thre
 \end{thebibliography}
 \end{document}
 \grid
-
-
