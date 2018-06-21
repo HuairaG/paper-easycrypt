@@ -138,15 +138,15 @@ EasyCrypt es presentado como el sucesor de CertiCrypt ya que  presenta un mecani
 \section{Casos de estudio de EasyCript}
 %EasyCrypt es útil en sistemas de seguridad. Estos sistemas tienen una fuerte dependencia de la criptografía para garantizar las propiedades deseadas de los mismos. Por lo tanto para que estos sistemas sean correctos (seguros) es necesario contar con una demostración de que los esquemas criptográficos utilizados por el sistema lo son. Pero estas demostraciones pueden ser propensas a errores, por lo que también deben ser probadas correctas, y este es el trabajo de EasyCript. A continuación se pasa a mostrar dos ejemplos de la utilidad e importancia de la herramienta.
 
-\textbf{Prueba de \textbf{IND-CPA security} en Hashed Elgamal\cite{ref_article8}:}
+\textbf{Prueba de \textbf{IND-CPA security} en Hashed Elgamal\cite{ref_article5}:}
 La seguridad de hashed Elgamal puede ser reducida a la suposición de \textbf{Computational Diffie-Hellman} (CDH). Esta dice que cierto problema computacional es dificil de computar dentro de un grupo cíclico. Considere un grupo cíclico $\mathcal{G}$ de orden \textit{q}, un generador elejido aleatoriamente \textit{g}, y elementos \textit{a} y \textit{b} aleatoriamente distribuidos en $\mathbb{Z}_q$ , es difícil computar $\mathnormal{g^{ab}}$ teniendo $\mathnormal{g^{a}}$ y $\mathnormal{g^{b}}$. Esta prueba consta de 243 lineas de código y tardó 33s. Los tiempos fueron medidos en un procesador 2.8GHz Intel Core 2 Duo con 4GB de memoria RAM bajo un sistema operativo Mac OS X 10.6.7.
 
 
 %\textbf{CMAC y sus variantes\cite{ref_article5}:}
 %El estándar CMAC cuando fue propuesto inicialmente por Iwata y Kurosawa como OMAC1 fue acompañada por una compleja prueba de seguridad basada en juego. Se utilizo EasyCrypt para formalizar una prueba de \textit{unforgeability} para CMAC. Para esto fue necesario una mejora y extensión a la librería estándar de EasyCrypt. Además de demostrar la seguridad similar a la obtenida por Iwata y Kurosawa\cite{ref_article6} en CMAC, se probo la seguridad de construcciones intermedias como ECBC, FCBC y XCBC\cite{ref_article7}. En la siguente sección se verá con mayor detalle este caso.
 
-\textbf{Demostración formal de CMAC y sus variantes\cite{ref_article5}:}
-El estándar CMAC cuando fue propuesto inicialmente por Iwata y Kurosawa como OMAC1 fue acompañada por una compleja prueba de seguridad basada en juego. Se utilizo EasyCrypt para formalizar una prueba de \textit{unforgeability} para CMAC. Para esto fue necesario una mejora y extensión a la librería estándar de EasyCrypt. Además de demostrar la seguridad similar a la obtenida por Iwata y Kurosawa\cite{ref_article6} en CMAC, se probo la seguridad de construcciones intermedias como ECBC, FCBC y XCBC\cite{ref_article7}.
+\textbf{Demostración formal de CMAC y sus variantes\cite{ref_article6}:}
+El estándar CMAC cuando fue propuesto inicialmente por Iwata y Kurosawa como OMAC1 fue acompañada por una compleja prueba de seguridad basada en juego. Se utilizo EasyCrypt para formalizar una prueba de \textit{unforgeability} para CMAC. Para esto fue necesario una mejora y extensión a la librería estándar de EasyCrypt. Además de demostrar la seguridad similar a la obtenida por Iwata y Kurosawa\cite{ref_article7} en CMAC, se probo la seguridad de construcciones intermedias como ECBC, FCBC y XCBC\cite{ref_article8}.
 
 Un código de autentificación de mensajes(MAC) es una pequeña porción de información (\textit{tag}) que se agrega a un mensaje y se usa para verificar su autenticidad e integridad. Una MAC se considera segura cuando un a esquema de algoritmos generadores de \textit{tags} de MACs le resulta extremadamente difícil producir un \textit{tag} valido sin conocer la clave secreta, aun teniendo la habilidad de obtener \textit{tags} validos de mensajes específicos. CMAC es actualmente el estándar MAC, extensamente usado en la práctica. Esta basado en \textit{cypher block chaining MAC} (CBC-MAC), el cual es un esquema muy sencillo que permite la construcción de un esquema MAC para un mensaje de tamaño fijo que se restringe a partir del tamaño de bloque de un \textit{block cypher} que se asume seguro. Para sobreponerse a esta restricción se propusieron variantes de CBC-MAC llamadas ECBC, FCBC, XCBC. Sin embargo, cada uno de estos esquemas requiere una clave mas larga que la solicitada por el \textit{block cypher}. Por otra parte CMAC fue la primer variante \textit{one-key CBC-MAC}, solo usa clave de \textit{block cypher} y fue probado seguro por Iwata y Kurosawa.
 
@@ -186,14 +186,14 @@ code-based game-playing proofs. In: EUROCRYPT 2006. LNCS, vol. 4004, pp.
 Backes, M., Berg, M., Unruh, D.: A formal language for cryptographic pseudocode.
 In: LPAR 2008. LNCS, vol. 5330, pp. 353–376. Springer (2008).
 \bibitem{ref_article5}
+Barthe G., Grégoire B., Heraud S., Béguelin S.Z. (2011) Computer-Aided Security Proofs for the Working Cryptographer. In: Rogaway P. (eds) Advances in Cryptology – CRYPTO 2011. CRYPTO 2011. Lecture Notes in Computer Science, vol 6841. Springer, Berlin, Heidelberg.
+\bibitem{ref_article6}
 Cécile Baritel-Ruet, François Dupressoir, Pierre-Alain Fouque and Benjamin Grégoire: Formal Security Proof of CMAC and its Variants.
 31st IEEE Computer Security Foundations Symposium, 2018.
-\bibitem{ref_article6}
-Tetsu Iwata and Kaoru Kurosawa. OMAC: One-key CBC MAC. In FSE, volume 2887, pages 129–153. Springer, 2003.
 \bibitem{ref_article7}
-John Black and Phillip Rogaway. CBC MACs for arbitrary-length messages: The three-key constructions. Journal of Cryptology, 18(2):111–131, 2005.
+Tetsu Iwata and Kaoru Kurosawa. OMAC: One-key CBC MAC. In FSE, volume 2887, pages 129–153. Springer, 2003.
 \bibitem{ref_article8}
-Barthe G., Grégoire B., Heraud S., Béguelin S.Z. (2011) Computer-Aided Security Proofs for the Working Cryptographer. In: Rogaway P. (eds) Advances in Cryptology – CRYPTO 2011. CRYPTO 2011. Lecture Notes in Computer Science, vol 6841. Springer, Berlin, Heidelberg.
+John Black and Phillip Rogaway. CBC MACs for arbitrary-length messages: The three-key constructions. Journal of Cryptology, 18(2):111–131, 2005.
 
 \end{thebibliography}
 \end{document}
